@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/dashboard.css') }}">
+{% endblock %}
+{% block content %}
+<section class="dashboard-page">
+<div class="dashboard-container">
+<div class="welcome-section">
+<div>
+<span class="dashboard-label">SAFEVOICE USER PORTAL</span>
+<h1>Welcome back, {{ name }}</h1>
+<p>Manage your incident reports, monitor case updates and access support resources securely.</p>
+</div>
+<div class="welcome-icon"><i class="fa-solid fa-shield-heart"></i></div>
+</div>
+<div class="dashboard-overview">
+<div class="overview-card">
+<div class="overview-icon"><i class="fa-solid fa-file-circle-plus"></i></div>
+<div><span>Report an Incident</span><strong>Submit</strong></div>
+</div>
+<div class="overview-card">
+<div class="overview-icon"><i class="fa-solid fa-folder-open"></i></div>
+<div><span>Your Reports</span><strong>Track</strong></div>
+</div>
+<div class="overview-card">
+<div class="overview-icon"><i class="fa-solid fa-lock"></i></div>
+<div><span>Account Security</span><strong>Protected</strong></div>
+</div>
+</div>
+<div class="dashboard-main">
+<div class="main-section">
+<div class="section-heading">
+<span>QUICK ACCESS</span>
+<h2>Manage Your Reports</h2>
+<p>Access the main SafeVoice services from here.</p>
+</div>
+<div class="action-grid">
+<a href="/report" class="action-card primary-action">
+<div class="action-icon"><i class="fa-solid fa-file-circle-plus"></i></div>
+<div><h3>Report an Incident</h3><p>Submit a new incident with details and supporting evidence.</p></div>
+<span class="action-link">Open <i class="fa-solid fa-arrow-right"></i></span>
+</a>
+<a href="/myreports" class="action-card">
+<div class="action-icon"><i class="fa-solid fa-folder-open"></i></div>
+<div><h3>My Reports</h3><p>View your submitted reports and track their current status.</p></div>
+<span class="action-link">View <i class="fa-solid fa-arrow-right"></i></span>
+</a>
+</div>
+</div>
+<div class="support-section">
+<div class="section-heading">
+<span>SUPPORT & SAFETY</span>
+<h2>Important Information</h2>
+</div>
+<div class="support-grid">
+<div class="support-card">
+<div class="support-icon"><i class="fa-solid fa-shield-halved"></i></div>
+<h3>Stay Safe</h3>
+<p>If you are in immediate danger, move to a safe location and contact emergency services.</p>
+</div>
+<div class="support-card">
+<div class="support-icon"><i class="fa-solid fa-phone"></i></div>
+<h3>Emergency Help</h3>
+<p>India's emergency number is <strong>112</strong>. Women's Helpline: <strong>181</strong>.</p>
+</div>
+<div class="support-card">
+<div class="support-icon"><i class="fa-solid fa-lock"></i></div>
+<h3>Your Privacy</h3>
+<p>Your reports are accessible only through your authenticated account and authorised administration.</p>
+</div>
+<div class="support-card">
+<div class="support-icon"><i class="fa-solid fa-file-shield"></i></div>
+<h3>Keep Evidence</h3>
+<p>Where safe and appropriate, preserve relevant documents, messages, images or other evidence.</p>
+</div>
+</div>
+</div>
+<div class="dashboard-notice">
+<div class="notice-icon"><i class="fa-solid fa-circle-info"></i></div>
+<div>
+<h3>About SafeVoice</h3>
+<p>SafeVoice provides a structured way to document domestic violence incidents, submit reports and follow their progress through the reporting process.</p>
+</div>
+</div>
+<div class="dashboard-footer-actions">
+<a href="/logout" class="logout-link"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

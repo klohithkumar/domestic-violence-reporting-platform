@@ -1,0 +1,99 @@
+text,physical,emotional,economic,sexual,controlling
+"My husband hit me",1,0,0,0,0
+"My partner slapped me",1,0,0,0,0
+"He punched me during an argument",1,0,0,0,0
+"My spouse pushed me against the wall",1,0,0,0,0
+"My partner physically attacked me",1,0,0,0,0
+"He kicked me and caused injuries",1,0,0,0,0
+"My husband grabbed me violently",1,0,0,0,0
+"My partner threw objects at me",1,0,0,0,0
+"He hit me repeatedly",1,0,0,0,0
+"My spouse hurt me physically",1,0,0,0,0
+"My husband slapped and threatened me",1,1,0,0,1
+"He punched me and constantly insults me",1,1,0,0,0
+"My partner hit me and controls where I go",1,0,0,0,1
+"He physically attacked me and threatened me",1,1,0,0,1
+"My spouse pushed me and controls my phone",1,0,0,0,1
+"My partner hits me whenever he gets angry",1,1,0,0,0
+"He assaulted me and prevents me from leaving",1,0,0,0,1
+"My husband physically hurts me and threatens me",1,1,0,0,1
+"My partner constantly insults me",0,1,0,0,0
+"He humiliates me in front of others",0,1,0,0,0
+"My husband verbally abuses me every day",0,1,0,0,0
+"My partner threatens me constantly",0,1,0,0,1
+"He makes me feel worthless and afraid",0,1,0,0,0
+"My spouse threatens to hurt me",0,1,0,0,1
+"He constantly criticizes and humiliates me",0,1,0,0,0
+"My partner isolates me from my friends",0,1,0,0,1
+"My husband prevents me from seeing my family",0,1,0,0,1
+"He threatens me if I disagree with him",0,1,0,0,1
+"My spouse scares me and controls my decisions",0,1,0,0,1
+"My partner emotionally abuses me",0,1,0,0,0
+"My husband controls all the money",0,0,1,0,1
+"My partner takes my salary",0,0,1,0,1
+"He does not allow me to access our bank account",0,0,1,0,1
+"My spouse prevents me from working",0,0,1,0,1
+"He takes all my earnings",0,0,1,0,1
+"My partner controls my financial decisions",0,0,1,0,1
+"My husband refuses to give me money for basic needs",0,0,1,0,1
+"He keeps my bank cards and money",0,0,1,0,1
+"My spouse controls our finances",0,0,1,0,1
+"My partner forces me to depend on him financially",0,0,1,0,1
+"My husband forced me to have sexual activity",0,0,0,1,1
+"My partner sexually assaulted me",0,0,0,1,0
+"He had sexual contact with me without consent",0,0,0,1,0
+"My spouse forces sex when I say no",0,0,0,1,1
+"My partner ignores my refusal and forces sexual activity",0,0,0,1,1
+"He sexually abuses me",0,0,0,1,0
+"My husband pressures me into unwanted sexual activity",0,0,0,1,1
+"My partner forces me to do sexual things I don't want",0,0,0,1,1
+"He assaulted me sexually",0,0,0,1,0
+"My spouse violates my sexual boundaries",0,0,0,1,0
+"My partner checks my phone constantly",0,1,0,0,1
+"He controls who I can talk to",0,1,0,0,1
+"My husband decides where I can go",0,1,0,0,1
+"My partner does not allow me to meet my friends",0,1,0,0,1
+"He controls my movements",0,1,0,0,1
+"My spouse monitors my messages",0,1,0,0,1
+"My partner controls my social activities",0,1,0,0,1
+"He prevents me from contacting my family",0,1,0,0,1
+"My husband controls my phone and accounts",0,0,1,0,1
+"My partner tracks my location without permission",0,1,0,0,1
+"He controls what I wear and who I meet",0,1,0,0,1
+"My husband hit me and controls my money",1,0,1,0,1
+"My partner hit me and threatened me",1,1,0,0,1
+"He assaulted me and controls my finances",1,0,1,0,1
+"My spouse insults me and takes my salary",0,1,1,0,1
+"My partner threatens me and controls my money",0,1,1,0,1
+"My husband hits me and sexually abuses me",1,0,0,1,0
+"My partner physically attacked me and sexually assaulted me",1,0,0,1,0
+"He threatens me, hits me and controls my movements",1,1,0,0,1
+"My spouse controls my money and isolates me",0,1,1,0,1
+"My husband insults me, hits me and controls my phone",1,1,0,0,1
+"My partner physically abuses me and takes my earnings",1,0,1,0,1
+"He threatens me and forces unwanted sexual activity",0,1,0,1,1
+"My spouse hits me and controls my finances",1,0,1,0,1
+"My partner emotionally abuses me and prevents me from working",0,1,1,0,1
+"My husband threatens me and sexually assaults me",0,1,0,1,1
+"He hits me, takes my money and controls me",1,0,1,0,1
+"My partner insults me and forces sexual activity",0,1,0,1,1
+"My spouse physically attacks me and prevents me from seeing family",1,0,0,0,1
+"My husband controls my money and constantly threatens me",0,1,1,0,1
+"My partner hit me and sexually abused me",1,0,0,1,0
+"I am physically abused by my spouse",1,0,0,0,0
+"I am constantly threatened by my partner",0,1,0,0,1
+"My partner controls my finances",0,0,1,0,1
+"I am being forced into unwanted sexual activity",0,0,0,1,1
+"My spouse controls my movements and communication",0,1,0,0,1
+"My husband takes my income and prevents me from working",0,0,1,0,1
+"He insults me and makes me afraid",0,1,0,0,0
+"My partner monitors everything I do",0,1,0,0,1
+"My spouse physically hurts me",1,0,0,0,0
+"He prevents me from accessing money",0,0,1,0,1
+"My partner forces sexual activity without consent",0,0,0,1,1
+"My husband threatens me and isolates me",0,1,0,0,1
+"My spouse hits me and insults me",1,1,0,0,0
+"My partner controls my bank account and phone",0,1,1,0,1
+"He physically assaults me and threatens me",1,1,0,0,1
+"My husband prevents me from meeting relatives",0,1,0,0,1
+"My partner takes my salary and controls my work",0,0,1,0,1

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SafeVoice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+{% block extra_css %}{% endblock %}
+</head>
+<body>
+<nav class="navbar">
+<div class="logo">
+{% if session.get("admin") %}
+<a href="{{ url_for('admin_dashboard') }}">
+<i class="fa-solid fa-shield-heart"></i> SafeVoice
+</a>
+{% elif session.get("user") %}
+<a href="{{ url_for('dashboard') }}">
+<i class="fa-solid fa-shield-heart"></i> SafeVoice
+</a>
+{% else %}
+<a href="{{ url_for('home') }}">
+<i class="fa-solid fa-shield-heart"></i> SafeVoice
+</a>
+{% endif %}
+</div>
+<ul class="nav-links">
+{% if session.get("admin") %}
+<li>
+<a href="{{ url_for('admin_dashboard') }}">
+<i class="fa-solid fa-chart-line"></i> Dashboard
+</a>
+</li>
+<li>
+<a href="{{ url_for('admin_reports') }}">
+<i class="fa-solid fa-folder-open"></i> Reports
+</a>
+</li>
+<li>
+<a href="{{ url_for('admin_logout') }}" class="nav-logout">
+<i class="fa-solid fa-right-from-bracket"></i> Logout
+</a>
+</li>
+{% elif session.get("user") %}
+<li>
+<a href="{{ url_for('dashboard') }}">
+<i class="fa-solid fa-house"></i> Home
+</a>
+</li>
+<li>
+<a href="{{ url_for('logout') }}" class="nav-logout">
+<i class="fa-solid fa-right-from-bracket"></i> Logout
+</a>
+</li>
+{% else %}
+<li>
+<a href="{{ url_for('home') }}">
+<i class="fa-solid fa-house"></i> Home
+</a>
+</li>
+<li>
+<a href="{{ url_for('home') }}#about">
+<i class="fa-solid fa-circle-info"></i> About
+</a>
+</li>
+<li>
+<a href="{{ url_for('home') }}#emergency">
+<i class="fa-solid fa-phone-volume"></i> Emergency
+</a>
+</li>
+<li>
+<a href="{{ url_for('login') }}">
+<i class="fa-solid fa-right-to-bracket"></i> Login
+</a>
+</li>
+<li>
+<a href="{{ url_for('register') }}" class="nav-register">
+Get Started
+</a>
+</li>
+{% endif %}
+</ul>
+</nav>
+{% block content %}
+{% endblock %}
+</body>
+</html>

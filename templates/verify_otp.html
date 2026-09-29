@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/verify_otp.css') }}">
+{% endblock %}
+{% block content %}
+<section class="auth-page">
+<div class="otp-container">
+<div class="otp-header">
+<div class="otp-icon">
+<i class="fa-solid fa-envelope-circle-check"></i>
+</div>
+<span class="auth-label">EMAIL VERIFICATION</span>
+<h1>Verify Your Email</h1>
+<p>
+We have sent a 6-digit verification code to your email address.
+Enter the code below to complete your SafeVoice registration.
+</p>
+</div>
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category,message in messages %}
+<div class="otp-message {{ category }}">
+<i class="fa-solid fa-circle-info"></i>
+<span>{{ message }}</span>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<form method="POST" class="otp-form">
+<div class="form-group">
+<label for="otp">
+<i class="fa-solid fa-key"></i>
+Verification Code
+</label>
+<input
+class="otp-input"
+type="text"
+id="otp"
+name="otp"
+maxlength="6"
+pattern="[0-9]{6}"
+inputmode="numeric"
+autocomplete="one-time-code"
+placeholder="000000"
+required
+>
+</div>
+<button class="otp-button" type="submit">
+<i class="fa-solid fa-circle-check"></i>
+Verify & Create Account
+</button>
+</form>
+<div class="otp-security">
+<div class="security-icon">
+<i class="fa-solid fa-shield-halved"></i>
+</div>
+<div>
+<strong>Secure verification</strong>
+<p>
+Your verification code is valid for 5 minutes.
+Do not share this code with anyone.
+</p>
+</div>
+</div>
+<div class="otp-footer">
+<a href="{{ url_for('register') }}">
+<i class="fa-solid fa-arrow-left"></i>
+Back to Registration
+</a>
+</div>
+</div>
+</section>
+{% endblock %}

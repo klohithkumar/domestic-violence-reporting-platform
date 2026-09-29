@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/update_status.css') }}">
+{% endblock %}
+{% block content %}
+<section class="update-status-page">
+<div class="update-status-container">
+<!-- PAGE HEADER -->
+<div class="update-header">
+<div>
+<span class="page-label">CASE MANAGEMENT</span>
+<h1>Update Report Status</h1>
+<p>
+Review the incident information and update the current case status.
+</p>
+</div>
+<a href="{{ url_for('admin_reports') }}" class="back-link">
+<i class="fa-solid fa-arrow-left"></i>
+Back to Reports
+</a>
+</div>
+<!-- MAIN CONTENT -->
+<div class="update-layout">
+<!-- INCIDENT DETAILS -->
+<div class="report-card">
+<div class="card-heading">
+<div class="heading-icon">
+<i class="fa-solid fa-file-shield"></i>
+</div>
+<div>
+<h2>Incident Details</h2>
+<p>Report information submitted by the user</p>
+</div>
+</div>
+<div class="details-grid">
+<div class="detail-item">
+<span class="detail-label">REPORT ID</span>
+<strong>#{{ report[0] }}</strong>
+</div>
+<div class="detail-item">
+<span class="detail-label">NAME</span>
+<strong>{{ report[1] }}</strong>
+</div>
+<div class="detail-item">
+<span class="detail-label">PHONE</span>
+<strong>{{ report[2] }}</strong>
+</div>
+<div class="detail-item">
+<span class="detail-label">LOCATION</span>
+<strong>{{ report[3] }}</strong>
+</div>
+<div class="detail-item">
+<span class="detail-label">INCIDENT DATE</span>
+<strong>{{ report[4] }}</strong>
+</div>
+<div class="detail-item full-width">
+<span class="detail-label">DESCRIPTION</span>
+<div class="description-box">
+{{ report[5] }}
+</div>
+</div>
+<div class="detail-item full-width">
+<span class="detail-label">CURRENT STATUS</span>
+<div>
+{% if report[6] == "Pending" %}
+<span class="status-badge pending">
+Pending
+</span>
+{% elif report[6] == "Reviewed" or report[6] == "Under Review" %}
+<span class="status-badge reviewed">
+{{ report[6] }}
+</span>
+{% elif report[6] == "Resolved" %}
+<span class="status-badge resolved">
+Resolved
+</span>
+{% elif report[6] == "Rejected" %}
+<span class="status-badge rejected">
+Rejected
+</span>
+{% else %}
+<span class="status-badge">
+{{ report[6] }}
+</span>
+{% endif %}
+</div>
+</div>
+</div>
+</div>
+<!-- STATUS UPDATE -->
+<div class="status-card">
+<div class="card-heading">
+<div class="heading-icon">
+<i class="fa-solid fa-pen-to-square"></i>
+</div>
+<div>
+<h2>Case Status</h2>
+<p>Select the new status for this report</p>
+</div>
+</div>
+<form method="POST" class="status-form">
+<label for="status">
+New Status
+</label>
+<select name="status" id="status" required>
+<option value="Pending"
+{% if report[6] == "Pending" %}selected{% endif %}>
+Pending
+</option>
+<option value="Reviewed"
+{% if report[6] == "Reviewed" %}selected{% endif %}>
+Reviewed
+</option>
+<option value="Resolved"
+{% if report[6] == "Resolved" %}selected{% endif %}>
+Resolved
+</option>
+<option value="Rejected"
+{% if report[6] == "Rejected" %}selected{% endif %}>
+Rejected
+</option>
+</select>
+<p class="status-help">
+Changing the status will update the case visible to the user.
+</p>
+<!-- BUTTONS -->
+<div class="form-actions">
+<button type="submit" class="save-btn">
+<i class="fa-solid fa-check"></i>
+<span>Save Changes</span>
+</button>
+<a href="{{ url_for('admin_reports') }}" class="cancel-btn">Cancel</a>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

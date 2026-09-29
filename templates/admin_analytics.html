@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/admin_analytics.css') }}">
+{% endblock %}
+{% block content %}
+<section class="analytics-page">
+<div class="analytics-header">
+<div>
+<span class="page-label">SYSTEM ANALYTICS</span>
+<h1>Report Analytics</h1>
+<p>Overview of submitted cases and their current status.</p>
+</div>
+<a href="{{ url_for('admin_dashboard') }}" class="back-link">
+<i class="fa-solid fa-arrow-left"></i>
+Dashboard
+</a>
+</div>
+<div class="analytics-grid">
+<div class="analytics-card total">
+<i class="fa-solid fa-file-lines"></i>
+<div>
+<span>Total Reports</span>
+<strong>{{ total_reports }}</strong>
+</div>
+</div>
+<div class="analytics-card pending">
+<i class="fa-solid fa-clock"></i>
+<div>
+<span>Pending</span>
+<strong>{{ pending }}</strong>
+</div>
+</div>
+<div class="analytics-card reviewed">
+<i class="fa-solid fa-eye"></i>
+<div>
+<span>Reviewed</span>
+<strong>{{ reviewed }}</strong>
+</div>
+</div>
+<div class="analytics-card resolved">
+<i class="fa-solid fa-circle-check"></i>
+<div>
+<span>Resolved</span>
+<strong>{{ resolved }}</strong>
+</div>
+</div>
+<div class="analytics-card rejected">
+<i class="fa-solid fa-circle-xmark"></i>
+<div>
+<span>Rejected</span>
+<strong>{{ rejected }}</strong>
+</div>
+</div>
+</div>
+<div class="status-section">
+<div class="section-heading">
+<h2>Case Status Overview</h2>
+<p>Current distribution of submitted reports.</p>
+</div>
+<div class="status-bars">
+<div class="status-row">
+<div>
+<span>Pending</span>
+<strong>{{ pending }}</strong>
+</div>
+<div class="bar">
+<span class="pending-bar" style="width: {{ (pending / total_reports * 100) if total_reports else 0 }}%;"></span>
+</div>
+</div>
+<div class="status-row">
+<div>
+<span>Reviewed</span>
+<strong>{{ reviewed }}</strong>
+</div>
+<div class="bar">
+<span class="reviewed-bar" style="width: {{ (reviewed / total_reports * 100) if total_reports else 0 }}%;"></span>
+</div>
+</div>
+<div class="status-row">
+<div>
+<span>Resolved</span>
+<strong>{{ resolved }}</strong>
+</div>
+<div class="bar">
+<span class="resolved-bar" style="width: {{ (resolved / total_reports * 100) if total_reports else 0 }}%;"></span>
+</div>
+</div>
+<div class="status-row">
+<div>
+<span>Rejected</span>
+<strong>{{ rejected }}</strong>
+</div>
+<div class="bar">
+<span class="rejected-bar" style="width: {{ (rejected / total_reports * 100) if total_reports else 0 }}%;"></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

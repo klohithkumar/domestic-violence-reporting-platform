@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/home.css') }}">
+{% endblock %}
+{% block content %}
+<section class="home-hero">
+<div class="home-hero-content">
+<span class="home-label"><i class="fa-solid fa-shield-heart"></i> SafeVoice</span>
+<h1>Domestic Violence<br>Reporting & Support<br>Platform</h1>
+<p>SafeVoice provides a secure and structured way for people experiencing domestic violence to document incidents, submit reports and track their case status.</p>
+<div class="home-actions">
+<a href="/register" class="home-primary">Report an Incident</a>
+<a href="/login" class="home-secondary">Login</a>
+</div>
+</div>
+<div class="home-hero-image">
+<div class="ribbon-frame">
+<img src="{{ url_for('static',filename='images/ribbon.jpeg') }}" alt="Domestic Violence Awareness">
+<div class="ribbon-caption">
+<div class="ribbon-icon"><i class="fa-solid fa-shield-heart"></i></div>
+<div>
+<strong>SafeVoice</strong>
+<span>Supporting every voice</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="how-section">
+<div class="home-section-heading">
+<span>HOW IT WORKS</span>
+<h2>A simple process for reporting an incident</h2>
+<p>SafeVoice provides a structured process from registration to case tracking.</p>
+</div>
+<div class="how-grid">
+<div class="how-card">
+<div class="how-number">01</div>
+<i class="fa-solid fa-user-plus"></i>
+<h3>Create an Account</h3>
+<p>Register using your email address and verify your account before accessing the platform.</p>
+</div>
+<div class="how-card">
+<div class="how-number">02</div>
+<i class="fa-solid fa-file-circle-plus"></i>
+<h3>Submit a Report</h3>
+<p>Provide incident details and upload supporting evidence when available.</p>
+</div>
+<div class="how-card">
+<div class="how-number">03</div>
+<i class="fa-solid fa-chart-simple"></i>
+<h3>Track the Status</h3>
+<p>View your submitted reports and follow their progress through the dashboard.</p>
+</div>
+</div>
+</section>
+<section class="features-section">
+<div class="features-content">
+<span>WHY SAFEVOICE</span>
+<h2>Designed around privacy and responsible case handling</h2>
+<p>SafeVoice is designed to provide a structured digital platform for reporting domestic violence while allowing authorised administrators to review and manage submitted cases.</p>
+<div class="feature-item">
+<i class="fa-solid fa-lock"></i>
+<div>
+<h3>Confidential Reporting</h3>
+<p>Reports are accessible through authenticated accounts and authorised administration.</p>
+</div>
+</div>
+<div class="feature-item">
+<i class="fa-solid fa-file-shield"></i>
+<div>
+<h3>Evidence Support</h3>
+<p>Users can attach supporting files to their incident reports when appropriate.</p>
+</div>
+</div>
+<div class="feature-item">
+<i class="fa-solid fa-clock-rotate-left"></i>
+<div>
+<h3>Case Status Tracking</h3>
+<p>Users can monitor whether their report is pending, reviewed or resolved.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="emergency" class="emergency-section">
+<div class="home-section-heading">
+<span>EMERGENCY ASSISTANCE</span>
+<h2>Need immediate help?</h2>
+<p>If you or someone else is in immediate danger, contact the appropriate emergency service.</p>
+</div>
+<div class="emergency-grid">
+<div class="emergency-item">
+<i class="fa-solid fa-shield-halved"></i>
+<h3>Police</h3>
+<strong>112</strong>
+<p>National Emergency Response</p>
+</div>
+<div class="emergency-item">
+<i class="fa-solid fa-phone"></i>
+<h3>Women's Helpline</h3>
+<strong>181</strong>
+<p>Women Support Helpline</p>
+</div>
+<div class="emergency-item">
+<i class="fa-solid fa-truck-medical"></i>
+<h3>Ambulance</h3>
+<strong>108</strong>
+<p>Emergency Medical Service</p>
+</div>
+</div>
+</section>
+<section id="about" class="about-section">
+<div>
+<span>ABOUT THE PROJECT</span>
+<h2>Technology for structured incident reporting</h2>
+</div>
+<div>
+<p>SafeVoice is a web-based domestic violence reporting platform developed to provide a structured method for documenting incidents and submitting them to authorised administrators.</p>
+<p>The platform includes user authentication, email verification, incident reporting, evidence upload, case-status tracking, administrator management and PDF report generation.</p>
+<a href="/register" class="about-button">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+</section>
+<footer class="home-footer">
+<div class="footer-main">
+<div class="footer-about">
+<h2><i class="fa-solid fa-shield-heart"></i> SafeVoice</h2>
+<p>Domestic Violence Reporting & Support Platform.</p>
+</div>
+<div class="footer-contact">
+<h3>Contact Us</h3>
+<div class="footer-contact-item">
+<i class="fa-solid fa-envelope"></i>
+<span>safevoice.admin@gmail.com</span>
+</div>
+<div class="footer-contact-item">
+<i class="fa-solid fa-location-dot"></i>
+<span>Bengaluru, Karnataka, India</span>
+</div>
+<a href="/admin" class="admin-login">
+<i class="fa-solid fa-user-shield"></i> Admin Login
+</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 SafeVoice | Domestic Violence Reporting & Support Platform | Final Year Project</p>
+</div>
+</footer>
+{% endblock %}

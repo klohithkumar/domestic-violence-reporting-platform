@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/admin_users.css') }}">
+{% endblock %}
+{% block content %}
+<section class="admin-users-page">
+<div class="users-header">
+<div>
+<span class="page-label">USER MANAGEMENT</span>
+<h1>Registered Users</h1>
+<p>View users registered on the SafeVoice platform.</p>
+</div>
+<a href="{{ url_for('admin_dashboard') }}" class="back-link">
+<i class="fa-solid fa-arrow-left"></i>
+Dashboard
+</a>
+</div>
+<div class="users-summary">
+<div>
+<i class="fa-solid fa-users"></i>
+<div>
+<span>Total Registered Users</span>
+<strong>{{ users|length }}</strong>
+</div>
+</div>
+</div>
+<div class="users-card">
+<div class="table-wrapper">
+<table class="users-table">
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+</tr>
+</thead>
+<tbody>
+{% for user in users %}
+<tr>
+<td>
+<span class="user-id">#{{ user[0] }}</span>
+</td>
+<td>
+<div class="user-person">
+<div class="user-avatar">
+{{ user[1][0]|upper }}
+</div>
+<strong>{{ user[1] }}</strong>
+</div>
+</td>
+<td>{{ user[2] }}</td>
+<td>{{ user[3] }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+</section>
+{% endblock %}

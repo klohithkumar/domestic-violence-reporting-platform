@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/myreports.css') }}">
+{% endblock %}
+{% block content %}
+<section class="reports-page">
+<div class="reports-header">
+<div>
+<span class="reports-label">CASE MANAGEMENT</span>
+<h1>My Reports</h1>
+<p>View your submitted reports, track their current status and review the automated assessment of each incident.</p>
+</div>
+<a href="/report" class="new-report-btn">
+<i class="fa-solid fa-plus"></i>
+New Report
+</a>
+</div>
+<div class="report-stats">
+<div class="report-stat-card">
+<div class="stat-icon">
+<i class="fa-solid fa-file-lines"></i>
+</div>
+<div>
+<h2>{{ total_reports }}</h2>
+<p>Total Reports</p>
+</div>
+</div>
+<div class="report-stat-card">
+<div class="stat-icon pending-icon">
+<i class="fa-solid fa-clock"></i>
+</div>
+<div>
+<h2>{{ pending }}</h2>
+<p>Pending</p>
+</div>
+</div>
+<div class="report-stat-card">
+<div class="stat-icon reviewed-icon">
+<i class="fa-solid fa-eye"></i>
+</div>
+<div>
+<h2>{{ reviewed }}</h2>
+<p>Reviewed</p>
+</div>
+</div>
+<div class="report-stat-card">
+<div class="stat-icon resolved-icon">
+<i class="fa-solid fa-circle-check"></i>
+</div>
+<div>
+<h2>{{ resolved }}</h2>
+<p>Resolved</p>
+</div>
+</div>
+</div>
+{% if reports %}
+<div class="reports-panel">
+<div class="panel-header">
+<div>
+<h2>Submitted Reports</h2>
+<p>Your incident reports and their current processing status.</p>
+</div>
+<div class="record-count">
+{{ total_reports }} Report{% if total_reports != 1 %}s{% endif %}
+</div>
+</div>
+<div class="table-wrapper">
+<table class="reports-table">
+<thead>
+<tr>
+<th>ID</th>
+<th>Reporter</th>
+<th>Phone</th>
+<th>Location</th>
+<th>Date</th>
+<th>Description</th>
+<th>AI Assessment</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+{% for report in reports %}
+<tr>
+<td>
+<span class="report-id">#{{ report[0] }}</span>
+</td>
+<td>
+<div class="reporter-name">
+{{ report[1] }}
+</div>
+</td>
+<td>{{ report[2] }}</td>
+<td>
+<span class="location-text">
+<i class="fa-solid fa-location-dot"></i>
+{{ report[3] }}
+</span>
+</td>
+<td>
+<span class="date-text">{{ report[4] }}</span>
+</td>
+<td>
+<div class="description-text">
+{{ report[5] }}
+</div>
+</td>
+<td>
+<div class="ai-assessment">
+{% if report[7] and report[7] != "No violence category detected" %}
+<div class="ai-heading">
+<i class="fa-solid fa-magnifying-glass"></i>
+<span>Automated Assessment</span>
+</div>
+<div class="ai-categories">
+{% for category in report[7].split(", ") %}
+<span class="ai-tag">{{ category }}</span>
+{% endfor %}
+</div>
+{% else %}
+<div class="ai-heading neutral">
+<i class="fa-solid fa-circle-minus"></i>
+<span>No category detected</span>
+</div>
+{% endif %}
+</div>
+</td>
+<td>
+{% if report[6] == "Pending" %}
+<span class="status-badge pending">
+<span class="status-dot"></span>
+Pending
+</span>
+{% elif report[6] == "Under Review" %}
+<span class="status-badge review">
+<span class="status-dot"></span>
+Under Review
+</span>
+{% elif report[6] == "Reviewed" %}
+<span class="status-badge review">
+<span class="status-dot"></span>
+Reviewed
+</span>
+{% elif report[6] == "Resolved" %}
+<span class="status-badge resolved">
+<span class="status-dot"></span>
+Resolved
+</span>
+{% elif report[6] == "Rejected" %}
+<span class="status-badge rejected">
+<span class="status-dot"></span>
+Rejected
+</span>
+{% else %}
+<span class="status-badge">
+<span class="status-dot"></span>
+{{ report[6] }}
+</span>
+{% endif %}
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+<div class="ai-note">
+<i class="fa-solid fa-circle-info"></i>
+<span><strong>Automated assessment:</strong> The categories shown are generated from the incident description using SafeVoice's machine-learning model and are intended to assist case review.</span>
+</div>
+</div>
+{% else %}
+<div class="empty-state">
+<div class="empty-icon">
+<i class="fa-regular fa-folder-open"></i>
+</div>
+<h2>No Reports Found</h2>
+<p>You haven't submitted any incident reports yet.</p>
+<a href="/report" class="new-report-btn">
+<i class="fa-solid fa-plus"></i>
+Report an Incident
+</a>
+</div>
+{% endif %}
+</section>
+{% endblock %}

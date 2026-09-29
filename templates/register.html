@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+{% endblock %}
+{% block content %}
+<section class="auth-page">
+<div class="auth-container">
+<div class="auth-header">
+<div class="auth-icon">
+<i class="fa-solid fa-user-plus"></i>
+</div>
+<span class="auth-label">SAFEVOICE ACCOUNT</span>
+<h1>Create Account</h1>
+<p>Register securely to report incidents and track your submitted reports.</p>
+</div>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category,message in messages %}
+<div class="auth-message {{ category }}">
+<i class="fa-solid fa-circle-info"></i>
+<span>{{ message }}</span>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<form method="POST" class="register-form">
+<div class="form-group">
+<label for="fullname">
+<i class="fa-solid fa-user"></i>
+Full Name
+</label>
+<input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+</div>
+<div class="form-group">
+<label for="email">
+<i class="fa-solid fa-envelope"></i>
+Email Address
+</label>
+<input type="email" id="email" name="email" placeholder="Enter your email address" required>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="country_code">
+<i class="fa-solid fa-earth-americas"></i>
+Country Code
+</label>
+<select id="country_code" name="country_code" required>
+<option value="+91">India (+91)</option>
+<option value="+1">USA (+1)</option>
+<option value="+44">UK (+44)</option>
+<option value="+61">Australia (+61)</option>
+<option value="+971">UAE (+971)</option>
+</select>
+</div>
+<div class="form-group">
+<label for="phone">
+<i class="fa-solid fa-phone"></i>
+Phone Number
+</label>
+<input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="password">
+<i class="fa-solid fa-lock"></i>
+Password
+</label>
+<input type="password" id="password" name="password" placeholder="Create a password" required>
+<small>8+ characters, uppercase, lowercase, number and special character.</small>
+</div>
+<div class="form-group">
+<label for="confirm_password">
+<i class="fa-solid fa-lock"></i>
+Confirm Password
+</label>
+<input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required>
+</div>
+</div>
+<div class="captcha-section">
+<label>
+<i class="fa-solid fa-shield-halved"></i>
+Security Verification
+</label>
+<div class="captcha-row">
+<div class="captcha-box">
+<span class="captcha-code">{{ captcha }}</span>
+</div>
+<input
+type="text"
+name="captcha"
+placeholder="Enter CAPTCHA"
+maxlength="6"
+autocomplete="off"
+required
+>
+</div>
+<p>Enter the characters shown above to verify that you are human.</p>
+</div>
+<div class="security-note">
+<div class="security-icon">
+<i class="fa-solid fa-shield-halved"></i>
+</div>
+<div>
+<strong>Your information is protected</strong>
+<p>Your account details are securely stored and your password is protected using secure password hashing.</p>
+</div>
+</div>
+<div class="form-actions">
+<button type="submit" class="register-btn">
+<i class="fa-solid fa-user-plus"></i>
+Create Account
+</button>
+<a href="{{ url_for('login') }}" class="cancel-btn">
+Cancel
+</a>
+</div>
+</form>
+<div class="auth-footer">
+<span>Already have an account?</span>
+<a href="{{ url_for('login') }}">Login here</a>
+</div>
+</div>
+</section>
+{% endblock %}

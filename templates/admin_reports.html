@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/admin_reports.css') }}">
+{% endblock %}
+{% block content %}
+<section class="admin-reports-page">
+<div class="admin-reports-header">
+<div>
+<span class="page-label">CASE MANAGEMENT</span>
+<h1>Incident Reports</h1>
+<p>Review submitted incidents, assess AI findings and manage case status.</p>
+</div>
+<div class="report-count">
+<i class="fa-solid fa-file-shield"></i>
+<div>
+<strong>{{ reports|length }}</strong>
+<span>Reports</span>
+</div>
+</div>
+</div>
+<div class="reports-toolbar">
+<form method="GET" action="{{ url_for('admin_reports') }}" class="search-form">
+<div class="search-box">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input type="text" name="search" value="{{ search }}" placeholder="Search by name or location">
+</div>
+<button type="submit">Search</button>
+{% if search %}
+<a href="{{ url_for('admin_reports') }}" class="clear-btn">Clear</a>
+{% endif %}
+</form>
+<a href="{{ url_for('export_pdf') }}" class="export-btn">
+<i class="fa-solid fa-file-pdf"></i>
+Export PDF
+</a>
+</div>
+{% if reports %}
+<div class="reports-card">
+<div class="table-wrapper">
+<table class="professional-table">
+<thead>
+<tr>
+<th>ID</th>
+<th>Person</th>
+<th>Contact</th>
+<th>Location</th>
+<th>Date</th>
+<th>Incident Description</th>
+<th>AI Assessment</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+{% for report in reports %}
+<tr>
+<td>
+<span class="report-id">#{{ report[0] }}</span>
+</td>
+<td>
+<div class="person-cell">
+<div class="person-avatar">{{ report[1][0]|upper }}</div>
+<div class="person-info">
+<strong>{{ report[1] }}</strong>
+<span>Reported individual</span>
+</div>
+</div>
+</td>
+<td>
+<div class="contact-cell">
+<i class="fa-solid fa-phone"></i>
+<span>{{ report[2] }}</span>
+</div>
+</td>
+<td>
+<div class="location-cell">
+<i class="fa-solid fa-location-dot"></i>
+<span>{{ report[3] }}</span>
+</div>
+</td>
+<td>
+<span class="date-cell">{{ report[4] }}</span>
+</td>
+<td>
+<div class="description-cell">
+{{ report[5] }}
+</div>
+</td>
+<td>
+<div class="ai-cell">
+<div class="ai-title">
+<i class="fa-solid fa-robot"></i>
+AI Assessment
+</div>
+{% if report[6] and report[6] != "No violence category detected" %}
+<div class="ai-result">
+{{ report[6] }}
+</div>
+{% else %}
+<span class="ai-none">No category detected</span>
+{% endif %}
+</div>
+</td>
+<td>
+{% if report[7] == "Pending" %}
+<span class="status-badge pending">Pending</span>
+{% elif report[7] == "Reviewed" %}
+<span class="status-badge reviewed">Reviewed</span>
+{% elif report[7] == "Resolved" %}
+<span class="status-badge resolved">Resolved</span>
+{% elif report[7] == "Rejected" %}
+<span class="status-badge rejected">Rejected</span>
+{% else %}
+<span class="status-badge">{{ report[7] }}</span>
+{% endif %}
+</td>
+<td>
+<a href="{{ url_for('update_status',id=report[0]) }}" class="action-btn">
+Review
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+{% else %}
+<div class="empty-reports">
+<div class="empty-icon">
+<i class="fa-solid fa-folder-open"></i>
+</div>
+<h2>No reports found</h2>
+<p>No incident reports match your search.</p>
+<a href="{{ url_for('admin_reports') }}" class="back-btn">View All Reports</a>
+</div>
+{% endif %}
+</section>
+{% endblock %}

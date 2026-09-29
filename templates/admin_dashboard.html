@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dashboard.css') }}">
+{% endblock %}
+{% block content %}
+<section class="admin-dashboard-page">
+<div class="admin-dashboard-container">
+<div class="admin-dashboard-header">
+<div>
+<span class="page-label">ADMINISTRATION</span>
+<h1>Admin Dashboard</h1>
+<p>Monitor reports, review cases and manage the SafeVoice platform.</p>
+</div>
+<a href="{{ url_for('admin_logout') }}" class="admin-logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+</div>
+<div class="admin-stats">
+<div class="admin-stat-card">
+<div class="stat-icon reports-icon"><i class="fa-solid fa-file-lines"></i></div>
+<div><span>Total Reports</span><strong>{{ total_reports }}</strong></div>
+</div>
+<div class="admin-stat-card">
+<div class="stat-icon users-icon"><i class="fa-solid fa-users"></i></div>
+<div><span>Registered Users</span><strong>{{ total_users }}</strong></div>
+</div>
+<div class="admin-stat-card">
+<div class="stat-icon pending-icon"><i class="fa-solid fa-clock"></i></div>
+<div><span>Pending</span><strong>{{ pending }}</strong></div>
+</div>
+<div class="admin-stat-card">
+<div class="stat-icon reviewed-icon"><i class="fa-solid fa-eye"></i></div>
+<div><span>Reviewed</span><strong>{{ reviewed }}</strong></div>
+</div>
+<div class="admin-stat-card">
+<div class="stat-icon resolved-icon"><i class="fa-solid fa-circle-check"></i></div>
+<div><span>Resolved</span><strong>{{ resolved }}</strong></div>
+</div>
+</div>
+<div class="admin-section">
+<div class="section-heading">
+<div>
+<h2>Quick Actions</h2>
+<p>Manage the main administrative functions.</p>
+</div>
+</div>
+<div class="admin-actions">
+<a href="{{ url_for('admin_reports') }}" class="admin-action-card">
+<div class="action-icon"><i class="fa-solid fa-file-pen"></i></div>
+<div><h3>Manage Reports</h3><p>View, review and update submitted reports.</p></div>
+<i class="fa-solid fa-arrow-right action-arrow"></i>
+</a>
+<a href="{{ url_for('admin_users') }}" class="admin-action-card">
+<div class="action-icon"><i class="fa-solid fa-users"></i></div>
+<div><h3>Users</h3><p>View registered SafeVoice users.</p></div>
+<i class="fa-solid fa-arrow-right action-arrow"></i>
+</a>
+<a href="{{ url_for('admin_analytics') }}" class="admin-action-card">
+<div class="action-icon"><i class="fa-solid fa-chart-column"></i></div>
+<div><h3>Analytics</h3><p>View report and case statistics.</p></div>
+<i class="fa-solid fa-arrow-right action-arrow"></i>
+</a>
+</div>
+</div>
+<div class="admin-section status-section">
+<div class="section-heading">
+<div>
+<h2>Case Status</h2>
+<p>Current report status categories.</p>
+</div>
+</div>
+<div class="status-guide">
+<div class="status-guide-item">
+<span class="status-badge pending">Pending</span>
+<p>Waiting for administrator review.</p>
+</div>
+<div class="status-guide-item">
+<span class="status-badge reviewed">Reviewed</span>
+<p>Report has been reviewed by an administrator.</p>
+</div>
+<div class="status-guide-item">
+<span class="status-badge resolved">Resolved</span>
+<p>Case has been successfully resolved.</p>
+</div>
+<div class="status-guide-item">
+<span class="status-badge rejected">Rejected</span>
+<p>Report has been closed without approval.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

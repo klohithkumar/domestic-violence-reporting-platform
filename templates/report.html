@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/report.css') }}">
+{% endblock %}
+{% block content %}
+<section class="report-page">
+<div class="report-container">
+<div class="report-header">
+<div>
+<span class="report-label">SAFEVOICE REPORTING</span>
+<h1>Report an Incident</h1>
+<p>Provide the incident details below. Your information will be handled confidentially.</p>
+</div>
+<div class="report-header-icon"><i class="fa-solid fa-file-shield"></i></div>
+</div>
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="report-messages">
+{% for category,message in messages %}
+<div class="message {{ category }}">{{ message }}</div>
+{% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+<div class="report-layout">
+<div class="report-form-card">
+<div class="card-title">
+<div class="title-icon"><i class="fa-solid fa-file-pen"></i></div>
+<div>
+<h2>Incident Information</h2>
+<p>Enter accurate information about the incident.</p>
+</div>
+</div>
+<form method="POST" class="report-form" enctype="multipart/form-data">
+<div class="form-row">
+<div class="form-group">
+<label><i class="fa-solid fa-user"></i> Full Name</label>
+<input type="text" name="fullname" placeholder="Enter your full name" required>
+</div>
+<div class="form-group">
+<label><i class="fa-solid fa-phone"></i> Phone Number</label>
+<input type="text" name="phone" placeholder="Enter phone number" required>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label><i class="fa-solid fa-location-dot"></i> Location</label>
+<input type="text" name="location" placeholder="Enter incident location" required>
+</div>
+<div class="form-group">
+<label><i class="fa-solid fa-calendar-days"></i> Incident Date</label>
+<input type="date" name="incident_date" required>
+</div>
+</div>
+<div class="form-group">
+<label><i class="fa-solid fa-align-left"></i> Incident Description</label>
+<textarea name="description" rows="8" placeholder="Describe what happened in as much detail as you can..." required></textarea>
+<small>Please provide relevant details such as what happened, when it happened and any important circumstances.</small>
+</div>
+<div class="form-group">
+<label><i class="fa-solid fa-paperclip"></i> Supporting Evidence</label>
+<div class="file-upload">
+<input type="file" name="evidence" accept=".jpg,.jpeg,.png,.pdf,.mp4">
+<i class="fa-solid fa-cloud-arrow-up"></i>
+<span>Choose a file to upload</span>
+<small>JPG, JPEG, PNG, PDF or MP4 • Maximum 50 MB</small>
+</div>
+</div>
+<div class="privacy-note">
+<div class="privacy-icon"><i class="fa-solid fa-lock"></i></div>
+<div>
+<strong>Confidential Submission</strong>
+<p>Your report is confidential and can only be accessed by authorised administrators.</p>
+</div>
+</div>
+<div class="form-actions">
+<a href="/dashboard" class="cancel-btn">Cancel</a>
+<button class="submit-btn" type="submit"><i class="fa-solid fa-paper-plane"></i> Submit Report</button>
+</div>
+</form>
+</div>
+<div class="report-side">
+<div class="side-card">
+<div class="side-icon"><i class="fa-solid fa-shield-heart"></i></div>
+<h3>Your Safety Comes First</h3>
+<p>If you are currently in immediate danger, move to a safe location and contact emergency services.</p>
+<div class="emergency-number"><i class="fa-solid fa-phone"></i><div><span>Emergency</span><strong>112</strong></div></div>
+</div>
+<div class="side-card">
+<h3><i class="fa-solid fa-circle-info"></i> Before Submitting</h3>
+<ul>
+<li>Provide information as accurately as possible.</li>
+<li>Include the incident location and date.</li>
+<li>Describe the incident clearly.</li>
+<li>Attach evidence only when it is safe to do so.</li>
+</ul>
+</div>
+<div class="side-card ai-card">
+<div class="ai-heading"><i class="fa-solid fa-robot"></i><span>SafeVoice AI</span></div>
+<p>Your incident description is analysed by the SafeVoice AI system to identify possible categories of violence and support structured case assessment.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

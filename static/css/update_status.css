@@ -1,0 +1,356 @@
+/* SAFEVOICE - UPDATE REPORT STATUS */
+.update-status-page {
+    width: 100%;
+    background: #f5f7fa;
+    min-height: calc(100vh - 80px);
+    padding: 45px 0 70px;
+    box-sizing: border-box;
+}
+
+.update-status-container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.update-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-bottom: 28px;
+}
+
+.page-label {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: #2f6fa7;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.update-header h1 {
+    margin: 0;
+    color: #26384d;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.update-header p {
+    margin: 8px 0 0;
+    color: #758597;
+    font-size: 15px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 17px;
+    border: 1px solid #d5dee7;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #52677b;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.back-link:hover {
+    background: #f1f5f8;
+    color: #2f6fa7;
+}
+
+.update-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 24px;
+    align-items: start;
+}
+
+.report-card,
+.status-card {
+    background: #ffffff;
+    border: 1px solid #e0e6ed;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(31, 52, 73, 0.06);
+}
+
+.card-heading {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 24px 25px;
+    border-bottom: 1px solid #e8edf2;
+}
+
+.heading-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    background: #edf4fa;
+    color: #2f6fa7;
+    font-size: 17px;
+    flex-shrink: 0;
+}
+
+.card-heading h2 {
+    margin: 0;
+    color: #26384d;
+    font-size: 18px;
+}
+
+.card-heading p {
+    margin: 4px 0 0;
+    color: #8291a0;
+    font-size: 13px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.detail-item {
+    min-height: 78px;
+    padding: 17px 20px;
+    border-bottom: 1px solid #e8edf2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    box-sizing: border-box;
+}
+
+.detail-item:nth-child(odd) {
+    border-right: 1px solid #e8edf2;
+}
+
+.detail-item.full-width {
+    grid-column: 1 / -1;
+    border-right: none;
+}
+
+.detail-label {
+    color: #8291a0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+}
+
+.detail-item strong {
+    color: #26384d;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.description-box {
+    color: #44576a;
+    background: #f8fafc;
+    border: 1px solid #e3e9ef;
+    border-radius: 7px;
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 6px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.status-badge.pending {
+    background: #fff3d1;
+    color: #a66b00;
+}
+
+.status-badge.reviewed {
+    background: #e6f0fa;
+    color: #2f6fa7;
+}
+
+.status-badge.resolved {
+    background: #dcf5e8;
+    color: #16804a;
+}
+
+.status-badge.rejected {
+    background: #fde5e5;
+    color: #b33a3a;
+}
+
+.status-card {
+    overflow: hidden;
+}
+
+.status-form {
+    padding: 25px;
+}
+
+.status-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #34495e;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.status-form select {
+    width: 100%;
+    height: 48px;
+    padding: 0 13px;
+    border: 1px solid #ccd7e2;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #26384d;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.status-form select:focus {
+    border-color: #2f6fa7;
+    box-shadow: 0 0 0 3px rgba(47, 111, 167, 0.10);
+}
+
+.status-help {
+    margin: 10px 0 0;
+    color: #7d8c9b;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    width: 100%;
+    margin-top: 25px;
+    box-sizing: border-box;
+}
+
+.save-btn {
+    height: 48px;
+    min-width: 142px;
+    padding: 0 18px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0;
+    border: none;
+    border-radius: 7px;
+    background: #2f6fa7;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.save-btn:hover {
+    background: #255d8d;
+}
+
+.save-btn i {
+    font-size: 13px;
+}
+
+.cancel-btn {
+    height: 48px;
+    min-width: 90px;
+    padding: 0 20px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    border: 1px solid #ccd7e2;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #52677b;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.cancel-btn:hover {
+    background: #f5f7fa;
+    border-color: #b8c6d3;
+    color: #34495e;
+}
+
+.form-actions .save-btn,
+.form-actions .cancel-btn {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+}
+
+@media (max-width: 900px) {
+    .update-layout {
+        grid-template-columns: 1fr;
+    }
+    .status-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .update-status-page {
+        padding-top: 30px;
+    }
+    .update-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+    .detail-item:nth-child(odd) {
+        border-right: none;
+    }
+    .detail-item.full-width {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 450px) {
+    .update-status-container {
+        width: 94%;
+    }
+    .card-heading {
+        padding: 20px;
+    }
+    .status-form {
+        padding: 20px;
+    }
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .form-actions .save-btn,
+    .form-actions .cancel-btn {
+        width: 100% !important;
+    }
+}
